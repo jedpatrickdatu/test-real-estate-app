@@ -4,8 +4,9 @@ import MapView from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import {propertyData} from '../constants/PropertyData';
 import { AntDesign } from '@expo/vector-icons';
+import { shortenPrice } from '../helpers/formatter';
 
-export default function Map() {
+export default function Map({navigation}) {
   return (
     <View style={styles.container}>
       <MapView
@@ -29,6 +30,7 @@ export default function Map() {
                 width: 300,
                 position: 'relative'
               }}
+              onPress={() => navigation.push("Property", {property})}
             >
               <View
                 style={{
@@ -64,7 +66,7 @@ export default function Map() {
                       fontSize: 20,
                     }}
                   >
-                    {property.price}
+                    {shortenPrice(property.price)}
                   </Text>
                   <View
                     style={{

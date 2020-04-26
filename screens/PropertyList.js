@@ -3,30 +3,32 @@ import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import {propertyData} from '../constants/PropertyData';
 import { LinearGradient } from 'expo-linear-gradient';
+import { shortenPrice } from '../helpers/formatter';
 
-export default function PropertyList() {
+export default function PropertyList({navigation}) {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-        {propertyData.map(data => PropertyCard(data))}
+        {propertyData.map(data => PropertyCard(navigation, data))}
     </ScrollView>
   );
 }
 
-function PropertyCard({ id, price, image, type }) {
-  const purchaseLabelBackground = type === 'For Sale' ? 'green' : 'rgb(9, 20, 232)';
+function PropertyCard(navigation, property) {
+  const purchaseLabelBackground = property.type === 'For Sale' ? 'green' : 'rgb(9, 20, 232)';
 
   return (
     <TouchableOpacity
-      key={id}
+      key={property.id}
       style={{
         height: '100%',
       }}
       style={{
         flexDirection: 'row',
       }}
+      onPress={() => navigation.push("Property", {property})}
     >
       <ImageBackground
-        source={image}
+        source={property.image}
         style={{
           width: '100%',
           height: 240,
@@ -47,9 +49,9 @@ function PropertyCard({ id, price, image, type }) {
         />
           <View
             style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
+              flexDirection: 'column',
+              justifyContent: 'flex-start',
+              alignContent: 'space-between',
               marginHorizontal: 6,
             }}
           >
@@ -59,22 +61,41 @@ function PropertyCard({ id, price, image, type }) {
                   color: 'white',
                   fontSize: 30,
                 }}>
-                  {`${price}`}
+                  {shortenPrice(property.price)}
               </Text>
             </View>
             <View
               style={{
-                backgroundColor: purchaseLabelBackground,
-                paddingHorizontal: 8,
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                paddingBottom: 12,
               }}
             >
-              <Text
+              <View>
+                <Text
+                  numberOfLines={1}
+                  style={{
+                    color: 'white',
+                    maxWidth: 300,
+                  }}>
+                    {property.name}
+                </Text>
+              </View>
+              <View
                 style={{
-                  color: 'white',
-                  fontSize: 12,
-                }}>
-                  {type}
-              </Text>
+                  backgroundColor: purchaseLabelBackground,
+                  justifyContent: 'center',
+                  paddingHorizontal: 8,
+                }}
+              >
+                <Text
+                  style={{
+                    color: 'white',
+                    fontSize: 12,
+                  }}>
+                    {property.type}
+                </Text>
+              </View>
             </View>
           </View>
       </ImageBackground>
@@ -86,12 +107,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fafafa',
-  },
-  contentContainer: {
-    paddingTop: 15,
-  },
-  optionIconContainer: {
-    marginRight: 12,
   },
   option: {
     backgroundColor: '#fdfdfd',

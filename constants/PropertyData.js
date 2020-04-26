@@ -1,7 +1,8 @@
 export const propertyData = [
     PropertyData(
         1,
-        '₱1.5M',
+        '3 Bedroom 2 Bathroom House and Lot Testes stest',
+        1500000,
         require('../assets/images/house1.jpeg'),
         {latitude: 14.597520, longitude: 121.097203},
         '830 Labanos, Pasig, Metro Manila',
@@ -9,7 +10,8 @@ export const propertyData = [
     ),
     PropertyData(
         2,
-        '₱60K',
+        'Three story Luxury House and Lot',
+        60000,
         require('../assets/images/house2.jpg'),
         {latitude: 14.657958, longitude: 121.133354},
         'Birmingham Heights, San Miguel, Marikina',
@@ -17,7 +19,8 @@ export const propertyData = [
     ),
     PropertyData(
         3,
-        '₱950K',
+        '2 Bedroom Condo Unit For Sale',
+        950000,
         require('../assets/images/house3.jpg'),
         {latitude: 14.905410, longitude: 120.960824},
         'Cacarong Bata, Bulacan',
@@ -27,6 +30,7 @@ export const propertyData = [
 
 function PropertyData(
   id,
+  name,
   price,
   image,
   coordinate,
@@ -35,6 +39,7 @@ function PropertyData(
 ) {
     return {
         id,
+        name,
         price,
         image,
         coordinate,
