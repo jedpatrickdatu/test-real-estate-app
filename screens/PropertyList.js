@@ -13,7 +13,7 @@ export default function PropertyList({navigation}) {
   );
 }
 
-function PropertyCard(navigation, property) {
+export function PropertyCard(navigation, property) {
   const purchaseLabelBackground = property.type === 'For Sale' ? 'green' : 'rgb(9, 20, 232)';
 
   return (

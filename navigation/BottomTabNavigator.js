@@ -26,8 +26,8 @@ export default function BottomTabNavigator({ navigation, route }) {
         name="PropertyList"
         component={PropertyList}
         options={{
-          title: 'List view',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+          title: 'List',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="ios-list" />,
         }}
       />
       <BottomTab.Screen
@@ -35,7 +35,7 @@ export default function BottomTabNavigator({ navigation, route }) {
         component={Map}
         options={{
           title: 'Map',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-map" />,
         }}
       />
     </BottomTab.Navigator>

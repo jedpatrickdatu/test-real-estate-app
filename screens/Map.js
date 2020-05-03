@@ -5,6 +5,7 @@ import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import {propertyData} from '../constants/PropertyData';
 import { AntDesign } from '@expo/vector-icons';
 import { shortenPrice } from '../helpers/formatter';
+import {PropertyCard} from './PropertyList';
 
 export default function Map({navigation}) {
   return (
@@ -32,10 +33,10 @@ export default function Map({navigation}) {
               }}
               onPress={() => navigation.push("Property", {property})}
             >
+              {/* {PropertyCard(navigation, property)} */}
               <View
                 style={{
                   flexDirection: 'row',
-                  alignContent: 'center'
                 }}
               >
                 <Text

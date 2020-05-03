@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import { Image, Text, View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import { addCommasAndCurrencyToPrice } from '../helpers/formatter';
-import { Bed } from '../assets/images/Bed';
 
 export default function Property({ route }) {
     const property = route.params.property
@@ -23,12 +22,12 @@ export default function Property({ route }) {
                     justifyItems: 'center',
                     padding: 10,
                     height: 'auto',
-                    width: 180
                 }}
             >
                 <Text
                     style={{
-                        fontSize: 20,
+                        fontSize: 26,
+                        fontWeight: '900'
                     }}
                 >
                     {addCommasAndCurrencyToPrice(property.price)}
@@ -37,13 +36,14 @@ export default function Property({ route }) {
                     style={{
                         alignSelf: 'flex-start',
                         backgroundColor: property.type === 'For Sale' ? 'green' : 'rgb(9, 20, 232)',
-                        paddingHorizontal: 8
+                        paddingHorizontal: 8,
+                        marginTop: 4
                     }}
                 >
                     <Text
                         style={{
                         color: 'white',
-                        fontSize: 14,
+                        fontSize: 14
                     }}
                     >
                         {property.type}
@@ -52,12 +52,31 @@ export default function Property({ route }) {
                 <Text
                     numberOfLines={2}
                     style={{
-                        fontSize: 12,
+                        fontSize: 14,
+                        marginTop: 4
                     }}
                 >
                     {property.address}
                 </Text>
-                {/* <Bed /> */}
+                <Text
+                    style={{
+                        fontSize: 18,
+                        marginTop: 24,
+                        fontWeight: '900',
+                        color: 'rgb(61, 64, 61)',
+                    }}
+                >
+                    DESCRIPTION
+                </Text>
+                <Text
+                    style={{
+                        fontSize: 14,
+                        marginTop: 12,
+                        width: '100%',
+                    }}
+                >
+                    {property.description}
+                </Text>
             </View>
         </ScrollView>
     );
