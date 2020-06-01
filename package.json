@@ -6,7 +6,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "start-web": "react-scripts start",
+    "build-web": "react-scripts build"
   },
   "jest": {
     "preset": "jest-expo"
@@ -25,18 +27,35 @@
     "expo-linear-gradient": "~8.0.0",
     "expo-web-browser": "~8.0.0",
     "react": "~16.9.0",
-    "react-dom": "~16.9.0",
+    "react-art": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
     "react-native-gesture-handler": "~1.5.0",
     "react-native-maps": "0.26.1",
     "react-native-safe-area-context": "0.6.0",
     "react-native-screens": "2.0.0-alpha.12",
-    "react-native-web": "~0.11.7"
+    "react-native-web": "^0.12.2",
+    "react-native-web-maps": "^0.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-router-native": "^5.2.0",
+    "react-scripts": "^3.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "babel-preset-expo": "~8.0.0",
     "jest-expo": "~36.0.1"
   },
-  "private": true
+  "private": true,
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
